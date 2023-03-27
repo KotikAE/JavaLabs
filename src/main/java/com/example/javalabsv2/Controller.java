@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class Controller {
+    private String userName = "";
     ObservableList<String> userComboBoxItems = FXCollections.observableArrayList("PC", "PS", "XBOX");
     @FXML
     private ResourceBundle resources;
@@ -75,7 +76,13 @@ public class Controller {
     void initialize() {
         initUserComboBox();
         userShowDataButton.setOnAction(actionEvent -> {
-            userAccountName.setText("Переиграно");
+            userName = userAccountNameTextField.getText().trim();
+
+            userAccountName.setText("UserAccountName");
+            userIngameName.setText("UserIngameName");
+            userAchievements.setText("UserAchievements");
+            userPlatform.setText("UserPlatform");
+            userGameStore.setText("UserGameStore");
         });
     }
 }
