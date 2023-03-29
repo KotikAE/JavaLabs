@@ -4,7 +4,7 @@ public abstract class User implements MyInterface {
     
     private String _accountName;
     private String _ingameName;
-    private int _achievements;
+    private Integer _achievements;
     protected String _platform;
     protected String _gameStore;
     private GameScore<Integer> _gameScore;
@@ -18,7 +18,7 @@ public abstract class User implements MyInterface {
         this._gameScore = new GameScore(0, 0, 0);
     }
 
-    public User(String inAccountName, String inIngameName, int inAchievements, String inPlatform, String inGameStore, GameScore<Integer> inGameScore) {
+    public User(String inAccountName, String inIngameName, Integer inAchievements, String inPlatform, String inGameStore, GameScore<Integer> inGameScore) {
         this._accountName = inAccountName;
         this._ingameName = inIngameName;
         this._achievements = inAchievements;

@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce367cf7-f104-4a2a-bb07-289161ac085b" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/ClientModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/ServerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/PSUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/PSUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/XBOXUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javalabsv2/XBOXUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,13 +58,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2NJMuXgJC6W2qo9OgCQoe1kQLDp" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -128,6 +127,17 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="." />

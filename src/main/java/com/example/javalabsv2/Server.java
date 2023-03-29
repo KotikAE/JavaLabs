@@ -7,6 +7,7 @@ import java.net.Socket;
 public class Server {
     private ServerSocket serverSocket;
     private static boolean isServerRunning = false;
+    private ServerModel model;
 
     public static void main(String[] args) {
         Server server = new Server();
@@ -60,6 +61,69 @@ public class Server {
             this.socket=socket;
             System.out.println(socket.getLocalAddress());
             isRunning = true;
+        }
+
+        private void RequestAccept(Connection connection,String username){
+            while (isRunning){
+                try {
+
+                    Message message = connection.Receive();
+
+                    switch (message.GetMessageType()){
+                        case TAB_USER_REQUEST -> {
+                            User sendUser = model.checkIfExistsAndReturn(message.GetUserName());
+                            connection.Send(new Message(MessageType.TAB_USER_RESPONSE, sendUser.get_accountName(),sendUser.get_ingameName(), sendUser.get_achievements(), sendUser.get_gameStore()));
+                            break;
+                        }case TAB_GAMESCORE_REQUEST -> {
+                            User sendUser = model.checkIfExistsAndReturn(message.GetUserName());
+                            connection.Send(new Message(MessageType.TAB_GAMESCORE_RESPONSE, sendUser.get_gameScore().get_totalTimePlayed(), sendUser.get_gameScore().get_sessionTimePlayed(), sendUser.get_gameScore().get_currentScore()));
+                            break;
+                        }case TAB_GENRE_REQUEST -> {
+                            Genre sendGenre = model.getGenre();
+                            connection.Send(new Message(MessageType.TAB_GENRE_RESPONSE, genreParse(), tagParse()));
+                            break;
+                        }
+                    }
+                } catch (Exception e){
+
+                }
+            }
+        }
+        String genreParse() {
+            String res = "";
+            for(int i = 0; i < model.getGenre().getGenreList().size(); i++) {
+                res += model.getGenre().getGenreList().get(i).toString() + " ";
+            }
+            return res;
+        }
+        String tagParse() {
+            String res = "";
+            for(int i = 0; i < model.getGenre().getTagList().size(); i++) {
+                res += model.getGenre().getTagList().get(i).toString() + " ";
+            }
+            return res;
+        }
+        @Override
+        public void run(){
+            try {
+                Connection connection = new Connection(socket);
+
+                //String username = AddUser(connection);
+                //AddUser(connection);
+                //RequestUserName(connection);
+                RequestAccept(connection,username);
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            //Сюды запихать функцию обработки запросов
+            for(int i=0;i<10;i++){
+                System.out.println(i);
+            }
+            /*while(true){
+                RequestAccept();
+            }*/
         }
     }
 }

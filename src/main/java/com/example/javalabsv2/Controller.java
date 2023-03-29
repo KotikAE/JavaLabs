@@ -1,5 +1,6 @@
 package com.example.javalabsv2;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +14,7 @@ import javafx.scene.control.TextField;
 
 public class Controller {
     private String userName = "";
+    private ClientModel model;
     ObservableList<String> userComboBoxItems = FXCollections.observableArrayList("PC", "PS", "XBOX");
     @FXML
     private ResourceBundle resources;
@@ -75,14 +77,46 @@ public class Controller {
     @FXML
     void initialize() {
         initUserComboBox();
+        model = new ClientModel(this);
         userShowDataButton.setOnAction(actionEvent -> {
-            userName = userAccountNameTextField.getText().trim();
-
-            userAccountName.setText("UserAccountName");
-            userIngameName.setText("UserIngameName");
-            userAchievements.setText("UserAchievements");
-            userPlatform.setText("UserPlatform");
-            userGameStore.setText("UserGameStore");
+            try {
+                model.userTabSend(userAccountNameTextField.getText());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
+        gameStatsShowDataButton.setOnAction(actionEvent -> {
+            try {
+                model.gameStatsTabSend(gameStatsAccountNameTextField.getText());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        genreShowDataButton.setOnAction(actionEvent -> {
+            try {
+                model.genreTabSend();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    void setUserTabData(String inAccountName, String inIngameName, Integer inAchievements, String inGameStore) {
+        userAccountName.setText(inAccountName);
+        userIngameName.setText(inIngameName);
+        userAchievements.setText(inAchievements.toString());
+        userPlatform.setText(userComboBox.getValue());
+        userGameStore.setText(inGameStore);
+    }
+
+    void setGameStatsTabData(Integer inTotalTime, Integer inSessionTime, Integer inCurrentScore) {
+        gameStatsTotal.setText(inTotalTime.toString());
+        gameStatsSession.setText(inSessionTime.toString());
+        gameStatsScore.setText(inCurrentScore.toString());
+    }
+
+    void setGenreTabData(ObservableList<String> inGenreList, ObservableList<String> inTagList) {
+        genreGenresListView.setItems(inGenreList);
+        genreTagsListView.setItems(inTagList);
     }
 }

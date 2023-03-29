@@ -10,7 +10,7 @@ public class PSUser extends User {
 
     public PSUser(String inAccountName, String inIngameName,int inAchievements, String inGameStore, GameScore<Integer> inGameScore)
     {
-        super(inAccountName, inIngameName, inAchievements, "PS", inGameStore, inGameScore);
+        super(inAccountName, inIngameName, inAchievements, "PS", "PlayStation Store", inGameScore);
     }
 
     @Override

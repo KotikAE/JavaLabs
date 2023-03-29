@@ -1,11 +1,12 @@
 package com.example.javalabsv2;
 
-import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Genre {
     
-    private ArrayDeque<String> _genreList = new ArrayDeque<String>();
-    private ArrayDeque<String> _tagList = new ArrayDeque<String>();
+    private List<String> _genreList = new ArrayList<String>();
+    private List<String> _tagList = new ArrayList<String>();
 
     public Genre() {
     }
@@ -15,11 +16,11 @@ public class Genre {
         this._tagList.add(inTagName);
     }
 
-    public ArrayDeque<String> getGenreList() {
+    public List<String> getGenreList() {
         return this._genreList;
     }
 
-    public ArrayDeque<String> getTagList() {
+    public List<String> getTagList() {
         return this._tagList;
     }
 

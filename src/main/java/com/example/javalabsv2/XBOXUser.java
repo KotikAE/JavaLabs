@@ -10,7 +10,7 @@ public class XBOXUser extends User {
 
     public XBOXUser(String inAccountName, String inIngameName, int inAchievements, String inGameStore, GameScore<Integer> inGameScore)
     {
-        super(inAccountName, inIngameName, inAchievements, "XBOX", inGameStore, inGameScore);
+        super(inAccountName, inIngameName, inAchievements, "XBOX", "Microsoft Store", inGameScore);
     }
 
     @Override

@@ -16,17 +16,17 @@ public class Connection implements Closeable{
         this.in = new ObjectInputStream(socket.getInputStream());
         this.out = new ObjectOutputStream(socket.getOutputStream());
     }
-//    public void Send(Message message) throws IOException{
-//        synchronized (this.out){
-//            out.writeObject(message);
-//        }
-//    }
-//    public Message Receive() throws  IOException,ClassNotFoundException{
-//        synchronized (this.in){
-//            Message message = (Message) in.readObject();
-//            return message;
-//        }
-//    }
+    public void Send(Message message) throws IOException{
+        synchronized (this.out){
+            out.writeObject(message);
+        }
+    }
+    public Message Receive() throws  IOException,ClassNotFoundException{
+        synchronized (this.in){
+            Message message = (Message) in.readObject();
+            return message;
+        }
+    }
     @Override
     public void close() throws IOException {
         in.close();
